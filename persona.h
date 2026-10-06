@@ -13,37 +13,39 @@ struct Fecha {
 class Persona {
 private:
     std::string nombre;
-    Fecha fechaNacimiento; // Atributo encapsulado
+    Fecha fechaNacimiento; //Atributo el cual con tiene un struct de datos
     std::string tel;
     std::string curp;
 
 
-    // 4.4 Metodo privado auxiliar para validar la l�gica interna
+    //Metodo auxiliar para validar la logica
     bool esFechaValida(int d, int m, int a)const;
     static Fecha obtenerFechaActual();
 
+    static bool esTelValido(const std::string &tel);
+
 
 public:
-    // 4.5 Constructores
+    //Contructor sin parametros y con parametros
     Persona();
     Persona(std::string nom, std::string t, std::string c, int d, int m, int a);
 
 
-    // 4.3 M�todos Getters y Setters
+    //Metodos getter y setters
     void setNombre(std::string nom);
     std::string getNombre() const;
 
-    //Actualizar telefono
-    bool setNuevoTel(std::string t);
-    std::string getNuevoTel() const;
+    //Actualizar telefono y dar 3 intentos
+    bool setTel(std::string t);
+    std::string getTel() const;
 
 
-    // Mutador con validacion
+    // Mutador con validacion de la faha
     bool setFechaNacimiento(int d, int m, int a);
     Fecha getFechaNacimiento() const;
 
 
-    // El m�todo estrella: calcula la edad din�micamente
+    //Metodo para el calculo de la edad
     int getEdad() const;
 
 };

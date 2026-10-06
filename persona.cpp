@@ -1,6 +1,7 @@
-#include "Persona.h"
-#include <ctime>   // Para obtener el tiempo real del sistema
+#include "persona.h"
+#include <ctime>   // Libreria para obtener el tiempo real del sistema
 #include <iostream>
+#include <cctype>
 
 
 // Constructor sin parametros (Valores por defecto seguros)
@@ -26,12 +27,34 @@ void Persona::setNombre(std::string nom) { nombre = nom; }
 std::string Persona::getNombre() const { return nombre; }
 Fecha Persona::getFechaNacimiento() const { return fechaNacimiento; }
 
-bool Persona::setNuevoTel(std::string t) {
+
+
+bool Persona::setTel(std::string t) {
     if (t.empty()) return false;
     tel = t;
     return true;
 }
-std::string Persona::getNuevoTel() const { return tel; }
+std::string Persona::getTel() const { return tel; }
+
+bool Persona::esTelValido(const std::string &tel) {
+    if (tel.size() != 10){
+        std::cerr << "Error: Numero telefonico invalido\n";
+        return false;
+        }
+
+    for (int i=0;i<=9;i++){
+        if (!isdigit(tel[i])){
+            std::cerr << "Error: Numero telefonico invalido\n";
+            return false;
+            }
+        }
+    return true;
+    }
+
+    std::cerr << "Error: Fecha numero telefonico invalido\n";
+    return false; // Rechazado
+}
+
 
 // Proteccion de informacion mediante filtrado en el Setter
 bool Persona::setFechaNacimiento(int d, int m, int a) {
@@ -66,7 +89,7 @@ bool Persona::esFechaValida(int d, int m, int a) const {
     int diasPorMes[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
 
-    // Validar a�o bisiesto para Febrero
+    // Validar año bisiesto para Febrero
     if ((a % 4 == 0 && a % 100 != 0) || (a % 400 == 0)) {
         diasPorMes[1] = 29;
     }
@@ -90,7 +113,7 @@ int Persona::getEdad() const {
 
     int edad = hoy.anio - fechaNacimiento.anio;
 
-    // Ajuste si aun no ha pasado su cumplea�os este a�o
+    // Ajuste si aun no ha pasado su cumpleaños este año
     if (hoy.mes < fechaNacimiento.mes ||
        (hoy.mes == fechaNacimiento.mes && hoy.dia < fechaNacimiento.dia)) {
         edad--;

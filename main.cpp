@@ -3,27 +3,9 @@
 
 #include "persona.h"
 
-
-using namespace std;
-
 int main(){
-    /*vector <Persona> Agenda;
 
-    //Persona nuevaPersona("Pancho","123456789",PONN670945JPG",7,9,2002);
-
-    Agenda.emplace_back("Pancho","123456789","MOLL730608HDF",8,6,1973);
-
-    Agenda.emplace_back();
-
-    //nuevaPersona.setNombre("Paco");
-
-    for(auto const &p : Agenda){
-        cout<<p.getNombre()<<endl;
-    }
-    cin.get();
-    */
-
-    vector <Persona> Agenda;
+    std::vector <Persona> Agenda;
 
     std::string nombre, tel, curp;
 int d, m, a;
@@ -38,12 +20,14 @@ do {
 
     std::cout << "CURP: ";
     std::cin >> curp;
-    
+
 
     std::cout << "Fecha de nacimiento (dia mes anio): ";
     std::cin >> d >> m >> a;
 
     Agenda.emplace_back(nombre, tel, curp, d, m, a);
+
+    std::cout<<"Tienes: " edad
 
     std::cout << "Agregar otra persona? (s/n): ";
     std::cin >> respuesta;
@@ -52,17 +36,6 @@ do {
 } while (respuesta == 's' || respuesta == 'S');
 
 std::cout << "Total: " << Agenda.size() << " personas\n";
-/*
-    vector <Persona> Agenda;
 
-    Persona nuevaPersona()
-    cout << nuevaPersona.setNombre()<< endl;
-
-    cout<<"Actualizar telefono";
-
-    for(const auto &t : Agenda){
-        cout<<t.getTel()<<endl;
-    }
-*/
     return 0;
 }
