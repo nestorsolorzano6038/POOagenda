@@ -3,13 +3,13 @@
         {
             "type": "cppbuild",
             "label": "C/C++: gcc.exe build active file",
-            "command": "C:/Users/Nestor/OneDrive/Documentos/MinGW/ucrt64/bin/gcc.exe",
+            "command": "C:/Users/Nestor/OneDrive/Documentos/MinGW/ucrt64/bin/g++.exe",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "${file}",
+                "${workspaceFolder}\\*.cpp",
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                "${workspaceFolder}\\agenda.exe"
             ],
             "options": {
                 "cwd": "C:/Users/Nestor/OneDrive/Documentos/MinGW/ucrt64/bin"
