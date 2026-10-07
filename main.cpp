@@ -27,11 +27,11 @@ do {
 
     Agenda.emplace_back(nombre, tel, curp, d, m, a);
 
-    std::cout<<"Tienes: " edad
+    std::cout << "Tienes: " << Agenda.back().getEdad() << " anios\n";
 
     std::cout << "Agregar otra persona? (s/n): ";
     std::cin >> respuesta;
-    std::cin.ignore();   // Importante, ver abajo
+    std::cin.ignore();
 
 } while (respuesta == 's' || respuesta == 'S');
 

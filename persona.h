@@ -30,7 +30,6 @@ public:
     Persona();
     Persona(std::string nom, std::string t, std::string c, int d, int m, int a);
 
-
     //Metodos getter y setters
     void setNombre(std::string nom);
     std::string getNombre() const;
@@ -39,16 +38,13 @@ public:
     bool setTel(std::string t);
     std::string getTel() const;
 
-
     // Mutador con validacion de la faha
     bool setFechaNacimiento(int d, int m, int a);
     Fecha getFechaNacimiento() const;
-
 
     //Metodo para el calculo de la edad
     int getEdad() const;
 
 };
-
 
 #endif //PERSONA_H_INCLUDED

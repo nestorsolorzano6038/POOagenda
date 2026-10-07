@@ -17,6 +17,7 @@ Persona::Persona(std::string nom, std::string t, std::string c,  int d, int m, i
     nombre = nom;
     tel = t;
     curp = c;
+
     // Si la fecha es invalida, se fuerza un estado consistente por defecto
     if (!setFechaNacimiento(d, m, a)) {
         fechaNacimiento = {1, 1, 2000};
@@ -30,7 +31,7 @@ Fecha Persona::getFechaNacimiento() const { return fechaNacimiento; }
 
 
 bool Persona::setTel(std::string t) {
-    if (t.empty()) return false;
+     if (t.empty()) return false;
     tel = t;
     return true;
 }
@@ -42,18 +43,14 @@ bool Persona::esTelValido(const std::string &tel) {
         return false;
         }
 
-    for (int i=0;i<=9;i++){
-        if (!isdigit(tel[i])){
+    for (int i=0 ; i<tel.size() ; i++){
+        if (!std::isdigit(static_cast<unsigned char>(tel[i]))){
             std::cerr << "Error: Numero telefonico invalido\n";
             return false;
             }
         }
     return true;
     }
-
-    std::cerr << "Error: Fecha numero telefonico invalido\n";
-    return false; // Rechazado
-}
 
 
 // Proteccion de informacion mediante filtrado en el Setter
@@ -122,4 +119,3 @@ int Persona::getEdad() const {
 
     return edad;
 }
-
